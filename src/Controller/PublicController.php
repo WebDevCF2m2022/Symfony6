@@ -17,4 +17,19 @@ class PublicController extends AbstractController
             'controller_name' => 'PublicController',
         ]);
     }
+
+    // création d'une nouvelle route
+    #[Route('/page/{id}', // on ajoute une variable dans l'url page
+        name: 'page', // on nomme la route page
+        requirements: ['id' => '\d+'], // id doit être un nombre
+        methods: ['GET'], // on précise que la route n'accepte que les requêtes GET
+    )]
+    // lien de l'attribut avec la méthode page
+    public function page(int $id): Response
+    {
+        return $this->render('public/page.html.twig', [
+            'controller_name' => 'PublicController',
+            'id' => $id
+        ]);
+    }
 }

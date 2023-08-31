@@ -141,3 +141,20 @@ Création du template `templates/public/page.html.twig`
     </div>
 {% endblock %}
 ```
+
+####
+
+
+### Dans .env
+
+création d'un chemin vers la base de données
+
+```dotenv
+DATABASE_URL="mysql://root:@127.0.0.1:3307/sym6?serverVersion=10.6.5-MariaDB&charset=utf8mb4"
+```
+
+### Création de la DB
+
+```bash
+symfony console doctrine:database:create
+```

@@ -13,9 +13,11 @@
 {# On définit un block top DANS qui sera affiché avant le contenu #}
 {% block top %}
     {# bare de navigation DANS top #}
-    {% block nav %}{% endblock %}
+    {% block nav %}
+        {% include 'public/inc/public.menu.html.twig' %}
+    {% endblock %}
     {% block header %}{% endblock %}
 {% endblock %}
 {% block content %}{% endblock %}
-{% block footer %}{% endblock %}
+    <p>Symfony6 ©CF2m {{ 'now'|date('Y') }}</p>
 {% endblock %}

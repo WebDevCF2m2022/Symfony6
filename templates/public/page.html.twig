@@ -1,13 +1,8 @@
 {# on étend notre tamplate #}
 {% extends 'template.html.twig' %}
 {% block title %}{{ parent() }} | Page : {{ twigid }}{% endblock %}
-{% block nav %}
-    <div class="nav">
-        {# utilisation de path pour les routes #}
-        <a href="{{ path('homepage') }}">Accueil</a>
-        {# utilisation de path avec paramètre #}
-        <a href="{{ path('page', {'id': 1}) }}">Page 1</a>
-        <a href="{{ path('page', {'id': 2}) }}">Page 2</a>
-        <a href="{{ path('page', {'id': 3}) }}">Page 3</a>
-    </div>
+{# on définit le contenu des blocs #}
+{% block header %}<h1>Page {{ twigid }}</h1>{% endblock %}
+{% block content %}
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, adipisci alias aliquam asperiores atque autem consequatur cumque cupiditate delectus doloremque doloribus ea earum eligendi eos error esse est eum eveniet excepturi exercitationem facilis fugiat hic illum impedit in incidunt ipsa ipsum iure laboriosam laborum libero magnam magni maiores maxime minima minus molestiae mollitia natus nemo neque nihil nisi nobis nostrum nulla numquam obcaecati odio officia officiis omnis optio pariatur perferendis perspiciatis placeat porro possimus praesentium provident quae quam quas quia quibusdam quisquam quod quos ratione recusandae rem repellat reprehenderit repudiandae rerum saepe sapiente sequi similique sint sit soluta sunt suscipit tempora temporibus tenetur totam ullam unde ut vel veniam veritatis voluptas voluptate voluptatem voluptates voluptatum.</p>
 {% endblock %}

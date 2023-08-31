@@ -81,3 +81,63 @@ L'url devient: https://localhost:8000/
     }
 ###
 ```
+
+Visible à l'URL
+
+https://localhost:8000/page/1
+
+#### Création d'un template
+
+Dans le contrôleur, on précise le nom du template à utiliser
+
+```php
+###
+public function page(int $id): Response
+    {
+        // on retourne le rendu de la page page.html.twig
+        // en lui passant les variables twigid et contenant l'id
+        return $this->render('public/page.html.twig', [
+            'twigid' => $id,
+        ]);
+    }
+###
+```
+
+Création de `templates/template.html.twig`
+
+```twig
+{# Ce template est étendu de base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony6{% endblock %}
+###
+{# On définit un block body pour pouvoir le diviser en plusieurs blocks #}
+{% block body %}
+{# On définit un block top DANS qui sera affiché avant le contenu #}
+{% block top %}
+    {# bare de navigation DANS top #}
+    {% block nav %}{% endblock %}
+    {% block header %}{% endblock %}
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+{% endblock %}
+```
+
+Création du template `templates/public/page.html.twig`
+
+```twig
+{# on étend notre tamplate #}
+{% extends 'template.html.twig' %}
+{% block title %}{{ parent() }} | Page : {{ twigid }}{% endblock %}
+{% block nav %}
+    <div class="nav">
+        {# utilisation de path pour les routes #}
+        <a href="{{ path('homepage') }}">Accueil</a>
+        {# utilisation de path avec paramètre #}
+        <a href="{{ path('page', {'id': 1}) }}">Page 1</a>
+        <a href="{{ path('page', {'id': 2}) }}">Page 2</a>
+        <a href="{{ path('page', {'id': 3}) }}">Page 3</a>
+    </div>
+{% endblock %}
+```

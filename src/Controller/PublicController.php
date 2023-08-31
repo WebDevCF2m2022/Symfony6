@@ -19,7 +19,7 @@ class PublicController extends AbstractController
     }
 
     // création d'une nouvelle route
-    #[Route('/page/{id}', // on ajoute une variable dans l'url page
+    #[Route('/articles/{id}', // on ajoute une variable dans l'url page
         name: 'page', // on nomme la route page
         requirements: ['id' => '\d+'], // id doit être un nombre
         methods: ['GET'], // on précise que la route n'accepte que les requêtes GET
@@ -27,6 +27,9 @@ class PublicController extends AbstractController
     // lien de l'attribut avec la méthode page
     public function page(int $id): Response
     {
-        return new Response("<body>Page $id</body>");
+        // on retourne le rendu de la page page.html.twig
+        return $this->render('public/page.html.twig', [
+            'twigid' => $id,
+        ]);
     }
 }

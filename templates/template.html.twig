@@ -1,0 +1,21 @@
+{# Ce template est étendu de base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony6{% endblock %}
+{# inutile de redéfinir ces blocks
+{#
+{% block langue %}fr{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
+#}
+{# On définit un block body pour pouvoir le diviser en plusieurs blocks #}
+{% block body %}
+{# On définit un block top DANS qui sera affiché avant le contenu #}
+{% block top %}
+    {# bare de navigation DANS top #}
+    {% block nav %}{% endblock %}
+    {% block header %}{% endblock %}
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+{% endblock %}

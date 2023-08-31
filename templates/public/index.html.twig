@@ -11,6 +11,12 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
+    <h2>Aller sur une page</h2>
+    <p><a href="{{ path('homepage') }}">Accueil</a>
+        {# utilisation de path avec paramètre #}
+        <a href="{{ path('page', {'id': 1}) }}">Page 1</a>
+        <a href="{{ path('page', {'id': 2}) }}">Page 2</a>
+        <a href="{{ path('page', {'id': 3}) }}">Page 3</a></p>
     This friendly message is coming from:
     <ul>
         <li>Your controller at <code><a href="{{ 'D:/WEB2022/PHP/Symfony6/src/Controller/PublicController.php'|file_link(0) }}">src/Controller/PublicController.php</a></code></li>

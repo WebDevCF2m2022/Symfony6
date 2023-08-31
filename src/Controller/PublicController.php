@@ -27,9 +27,6 @@ class PublicController extends AbstractController
     // lien de l'attribut avec la méthode page
     public function page(int $id): Response
     {
-        return $this->render('public/page.html.twig', [
-            'controller_name' => 'PublicController',
-            'id' => $id
-        ]);
+        return new Response("<body>Page $id</body>");
     }
 }

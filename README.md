@@ -68,7 +68,8 @@ L'url devient: https://localhost:8000/
     #[Route('/page/{id}', // on ajoute une variable dans l'url page
         name: 'page', // on nomme la route page
         requirements: ['id' => '\d+'], // id doit être un nombre
-        methods: ['GET'], // on précise que la route n'accepte que les requêtes GET
+        methods: ['GET'], // on précise que la route n'accepte que les
+        // requêtes GET
     )]
     // lien de l'attribut avec la méthode page
     public function page(int $id): Response

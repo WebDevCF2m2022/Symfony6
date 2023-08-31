@@ -8,7 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PublicController extends AbstractController
 {
-    #[Route('/public', name: 'app_public')]
+    // on change la route vers la racine et on nomme la route homepage
+    #[Route('/', name: 'homepage')]
     public function index(): Response
     {
         return $this->render('public/index.html.twig', [

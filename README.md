@@ -46,3 +46,17 @@ https://localhost:8000/public
 ```bash
 php bin/console debug:router
 ```
+
+#### Changement de route
+
+Dans le fichier `src/Controller/PublicController.php`
+
+```php  
+###
+    #[Route('/', name: 'homepage')]
+    public function index(): Response
+###
+```
+
+L'url devient: https://localhost:8000/
+

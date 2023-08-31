@@ -41,3 +41,8 @@ On peut accéder au contrôleur à cette adresse:
 
 https://localhost:8000/public
 
+#### Affichage des routes
+
+```bash
+php bin/console debug:router
+```

@@ -22,6 +22,8 @@ class PublicController extends AbstractController
     #[Route('/articles/{id}', // on ajoute une variable dans l'url page
         name: 'page', // on nomme la route page
         requirements: ['id' => '\d+'], // id doit être un nombre
+        # symfony évite le duplicate content dans twig (articles == articles/1)
+        defaults: ['id' => 1], // on définit une valeur par défaut pour id
         methods: ['GET'], // on précise que la route n'accepte que les requêtes GET
     )]
     // lien de l'attribut avec la méthode page

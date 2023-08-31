@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PublicController extends AbstractController
 {
+
     // on change la route vers la racine et on nomme la route homepage
     #[Route('/', name: 'homepage')]
     public function index(): Response
